@@ -1,5 +1,5 @@
 # Concentration-Game
-
+For JS
 1. Prompt "Find the pairs!"
     initialize board
         board circles all set to null
@@ -33,4 +33,18 @@
     - play again button will pop up once winner is prompted
 9. Resets the game board shuffles cards
     - function shuffle array
- 
+
+For CSS
+
+1. 
+
+For HTML
+1. Header "Concentration Game"
+2. H1 "Pick a circle and find the pair"
+3. Section #Board 
+    add 16 div slots for each card or circle
+4. Button "Play Again"
+
+
+ WIREFRAME
+ https://excalidraw.com/#json=mvFKXfh_cM6X3TkukCaPj,ZtEQrkbSVirZgIHRP1F-6w
