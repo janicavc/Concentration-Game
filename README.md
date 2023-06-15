@@ -36,7 +36,10 @@ For JS
 
 For CSS
 
-1. 
+1. For body add sizing, margins, font, background colors
+2. For Header change font and zie
+3. For the board arrange the rows and columns for the circles, add gaps in between circles
+4. Add Play again button
 
 For HTML
 1. Header "Concentration Game"
