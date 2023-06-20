@@ -1,4 +1,8 @@
 //*---- constants ----*//
+const CARDS = {
+    '0' : 
+}
+
 const winningCombos = [
 
 ]
@@ -34,5 +38,19 @@ function initialize() {
 }
 
 function playerChoice(evt) {
-    
+
+}
+
+function render() {
+    renderBoard();
+    renderMessage();
+    renderControls();
+}
+
+function renderBoard() {
+    board.forEach(function())
+}
+
+function renderControls() {
+    playAgainBtn.style.visibility = winner ? 'visible' : 'hidden';
 }
