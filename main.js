@@ -1,5 +1,7 @@
 //*---- constants ----*//
+const winningCombos = [
 
+]
 
 
 //*---- state variables ----*//
@@ -16,5 +18,17 @@ let paired; // keep track of the cars that have fliped and are paired
 
 
 //*---- functions ----*//
+initialize();
 
+function initialize() {
+    board = [
+        [0, 0, 0, 0]
+        [0, 0, 0, 0]
+        [0, 0, 0, 0]
+        [0, 0, 0, 0]
+    ];
+    turn = 1;
+    winner = null;
+    // render ()
+}
 
