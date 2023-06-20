@@ -1,12 +1,12 @@
 //*---- constants ----*//
-const CARDS = {
-    '0' : 
+const CARD = {
+    '0' : 'white'
+    // '1' : 'thistle'
 }
 
 const winningCombos = [
 
 ]
-
 
 //*---- state variables ----*//
 let board; //array of 4c 4r
@@ -48,7 +48,12 @@ function render() {
 }
 
 function renderBoard() {
-    board.forEach(function())
+    board.forEach(function changeColor(playerCard) {
+        let buttonStyle = playerCard.style;
+        playerCard.addEventListener('click', function() {
+            
+        })
+    })
 }
 
 function renderControls() {

@@ -11,17 +11,18 @@ body {
     align-items: center;
 }
 
-#board {
+#cards {
     display: grid;
     grid-template-columns: repeat(4, 10vmin);
     grid-template-rows: repeat(4, 10vmin);
     gap: 5vmin;
     margin-top: 1vmin;
-    /* border: 0.3vmin solid black;
-    border-radius: 2vmin; */
+    border: 0.3vmin solid black;
+    border-radius: 2vmin;
+    padding: 6vmin;
 }
 
-#board > div {
+#cards > div {
     border-radius: 2vmin;
     border: 0.2vmin solid black;
 }
