@@ -11,7 +11,7 @@ body {
     align-items: center;
 }
 
-#cards {
+#board {
     display: grid;
     grid-template-columns: repeat(4, 10vmin);
     grid-template-rows: repeat(4, 10vmin);
@@ -22,7 +22,7 @@ body {
     padding: 6vmin;
 }
 
-#cards > div {
+#board > div {
     border-radius: 2vmin;
     border: 0.2vmin solid black;
 }

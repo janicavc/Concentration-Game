@@ -1,7 +1,7 @@
 //*---- constants ----*//
 const CARD = {
-    '0' : 'white'
-    // '1' : 'thistle'
+    '0' : 'white',
+    '1' : 'thistle'
 }
 
 const winningCombos = [
@@ -22,38 +22,55 @@ const playAgainBtn = document.querySelector('button');
 document.getElementById('board').addEventListener('click', playerChoice);
 playAgainBtn.addEventListener('click', initialize);
 
+
 //*---- functions ----*//
 initialize();
 
 function initialize() {
     board = [
-        [0, 0, 0, 0]
-        [0, 0, 0, 0]
-        [0, 0, 0, 0]
-        [0, 0, 0, 0]
+        [0, 0, 0, 0], //col 0
+        [0, 0, 0, 0], //col 1
+        [0, 0, 0, 0], //col 2
+        [0, 0, 0, 0] // col 3
     ];
     turn = 1;
     winner = null;
-    // render ()
+    render ();
 }
 
 function playerChoice(evt) {
-
+    
 }
-
+// Vizualize all state in the DOM
 function render() {
     renderBoard();
     renderMessage();
     renderControls();
 }
 
-function renderBoard() {
-    board.forEach(function changeColor(playerCard) {
-        let buttonStyle = playerCard.style;
-        playerCard.addEventListener('click', function() {
+// function renderBoard() {
+//     board.forEach(function changeColor(playerCard) {
+//         let buttonStyle = playerCard.style;
+//         // playerCard.addEventListener('click', function() {
             
-        })
-    })
+//         // })
+//     })
+// }
+
+function renderBoard() {
+    board.forEach(function(colArr, colIdx) {
+        // Iterate over the cells in the cur collumn (colArr)
+        colArr.forEach(function(cellVal, rowIdx) {
+            const cellId = `c${colIdx}r${rowIdx}`;
+            const cellEl = document.getElementById(cellId);
+            cellEl.style.backgroundColor = CARD[cellVal];
+            
+        });
+    });
+}
+
+function renderMessage() {
+
 }
 
 function renderControls() {
