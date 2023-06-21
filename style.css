@@ -27,6 +27,10 @@ body {
     border: 0.2vmin solid black;
 }
 
+#board > div:hover {
+    background-color: thistle;
+}
+
 button {
     margin-top: 5vmin;
     padding: 3vmin;

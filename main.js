@@ -4,9 +4,8 @@ const CARD = {
     '1' : 'thistle'
 }
 
-const winningCombos = [
 
-]
+const winningCombos = [ ]
 
 //*---- state variables ----*//
 let board; //array of 4c 4r
@@ -14,9 +13,9 @@ let winner; // null = no winner, all cards have pairs = "Winner"
 let paired; // keep track of the cars that have fliped and are paired
 
 //*---- cached elements ----*//
-const message = document.querySelector('h1');
+const message = document.querySelector('h2');
 const playAgainBtn = document.querySelector('button');
-
+const cards = document.querySelector(".board");
 
 //*---- event listeners ----*//
 document.getElementById('board').addEventListener('click', playerChoice);
@@ -39,8 +38,19 @@ function initialize() {
 }
 
 function playerChoice(evt) {
-    
+    const colIdx = (evt.target);
+
+
+    render();
 }
+
+function getWinner() {
+    return checkMatch();
+}
+
+
+
+
 // Vizualize all state in the DOM
 function render() {
     renderBoard();
@@ -48,31 +58,28 @@ function render() {
     renderControls();
 }
 
-// function renderBoard() {
-//     board.forEach(function changeColor(playerCard) {
-//         let buttonStyle = playerCard.style;
-//         // playerCard.addEventListener('click', function() {
-            
-//         // })
-//     })
-// }
 
 function renderBoard() {
-    board.forEach(function(colArr, colIdx) {
+    board.forEach(function(colArr, colIdx ) {
         // Iterate over the cells in the cur collumn (colArr)
         colArr.forEach(function(cellVal, rowIdx) {
-            const cellId = `c${colIdx}r${rowIdx}`;
-            const cellEl = document.getElementById(cellId);
-            cellEl.style.backgroundColor = CARD[cellVal];
-            
+        const cellId = `c${colIdx}r${rowIdx}`
+        const cellEl = document.getElementById(cellId);
+        cellEl.style.backgroundColor = `CARD${}`
         });
     });
 }
 
 function renderMessage() {
-
+    if (winner === 1) {
+        message.innerText = "You found all the pairs!!!"
+    } else {
+        // game is in play
+        message.innerText = "Keep looking for pairs!"
+    }
 }
 
 function renderControls() {
     playAgainBtn.style.visibility = winner ? 'visible' : 'hidden';
+
 }
