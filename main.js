@@ -14,10 +14,10 @@ let flippedCard = [];
 const message = document.querySelector('h2');
 const playAgainBtn = document.querySelector('button');
 const gameBoard = document.querySelector('#board');
-const gameCards = document.querySelector('.cards');
+const gameCards = document.querySelectorAll('.card');
 
 //*---- event listeners ----*//
-gameCards.addEventListener('click', flipCard);
+gameCards.forEach((gameCard) => {gameCard.addEventListener('click', flipCard)});
 playAgainBtn.addEventListener('click', initialize);
 
 
@@ -25,8 +25,9 @@ playAgainBtn.addEventListener('click', initialize);
 initialize();
 
 function initialize() {
-    paired = [],
-    flippedCard = [],
+    gameCards.forEach((gameCard, i) => {gameCard.style.backgroundColor = cardImgs[i]})
+    pairs = [],
+    flippedCards = [],
     turn = 1;
     winner = null;
     // render ();
@@ -40,7 +41,7 @@ function render() {
 }
 
 function renderBoard() {
-
+// 
 }
 
 function shuffle(array) {
@@ -52,9 +53,27 @@ function shuffle(array) {
 
 // function to flip the card and display the color or img
 function flipCard(event) {
-     if (event.target.classList.contains('')) {
-     
+     flippedCards.push(event.target)
+
+     if (flippedCards.length === 2) {
+        compareCards();
      }
+     
 
     //  alert('you flipped the card');
+}
+
+function compareCards() {
+    const card1 = flippedCards[0].style.backgroundColor
+    const card2 = flippedCards[1].style.backgroundColor
+    if (card1 === card2) {
+        console.log("You found a pair!");
+    } else {
+
+    }
+
+    console.log(flippedCards[0].style.backgroundColor)
+    console.log(flippedCards[1].style.backgroundColor)
+
+    // if (flippedCards[])
 }
