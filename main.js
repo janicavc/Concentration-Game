@@ -1,8 +1,6 @@
 //*---- constants ----*//
-const CARD = {
-    '0' : 'white',
-    '1' : 'thistle'
-}
+const cardImgs = ['red', 'blue', 'orange', 'purple', 'green', 'pink', 'red', 'blue', 'orange', 'purple', 'green', 'pink'];
+
 
 
 const winningCombos = [ ]
@@ -10,15 +8,16 @@ const winningCombos = [ ]
 //*---- state variables ----*//
 let board; //array of 4c 4r
 let winner; // null = no winner, all cards have pairs = "Winner"
-let paired; // keep track of the cars that have fliped and are paired
-
+let paired = []; // keep track of the cars that have fliped and are paired
+let flippedCard = [];
 //*---- cached elements ----*//
 const message = document.querySelector('h2');
 const playAgainBtn = document.querySelector('button');
-const cards = document.querySelector(".board");
+const gameBoard = document.querySelector('#board');
+const gameCards = document.querySelector('.cards');
 
 //*---- event listeners ----*//
-document.getElementById('board').addEventListener('click', playerChoice);
+gameCards.addEventListener('click', flipCard);
 playAgainBtn.addEventListener('click', initialize);
 
 
@@ -26,60 +25,36 @@ playAgainBtn.addEventListener('click', initialize);
 initialize();
 
 function initialize() {
-    board = [
-        [0, 0, 0, 0], //col 0
-        [0, 0, 0, 0], //col 1
-        [0, 0, 0, 0], //col 2
-        [0, 0, 0, 0] // col 3
-    ];
+    paired = [],
+    flippedCard = [],
     turn = 1;
     winner = null;
-    render ();
+    // render ();
 }
 
-function playerChoice(evt) {
-    const colIdx = (evt.target);
-
-
-    render();
-}
-
-function getWinner() {
-    return checkMatch();
-}
-
-
-
-
-// Vizualize all state in the DOM
 function render() {
     renderBoard();
     renderMessage();
-    renderControls();
+    shuffle();
+    flipCard();
 }
-
 
 function renderBoard() {
-    board.forEach(function(colArr, colIdx ) {
-        // Iterate over the cells in the cur collumn (colArr)
-        colArr.forEach(function(cellVal, rowIdx) {
-        const cellId = `c${colIdx}r${rowIdx}`
-        const cellEl = document.getElementById(cellId);
-        cellEl.style.backgroundColor = `CARD${}`
-        });
-    });
+
 }
 
-function renderMessage() {
-    if (winner === 1) {
-        message.innerText = "You found all the pairs!!!"
-    } else {
-        // game is in play
-        message.innerText = "Keep looking for pairs!"
+function shuffle(array) {
+    for (let cardIdx = array.length - 1; cardIdx >  0; cardIdx--) {
+        const shuffleCards = Math.floor(Math.random() * (cardIdx + 1));
     }
+    return cardIdx;
 }
 
-function renderControls() {
-    playAgainBtn.style.visibility = winner ? 'visible' : 'hidden';
+// function to flip the card and display the color or img
+function flipCard(event) {
+     if (event.target.classList.contains('')) {
+     
+     }
 
+    //  alert('you flipped the card');
 }
