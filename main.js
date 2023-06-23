@@ -9,7 +9,9 @@ const winningCombos = [ ]
 let board; //array of 4c 4r
 let winner; // null = no winner, all cards have pairs = "Winner"
 let pairs = []; // keep track of the cars that have fliped and are paired
-let flippedCard = [];
+let flippedCards = [];
+let points = 0;
+let totalGuess = 0;
 //*---- cached elements ----*//
 const message = document.querySelector('h2');
 const playAgainBtn = document.querySelector('button');
@@ -25,9 +27,7 @@ playAgainBtn.addEventListener('click', initialize);
 initialize();
 
 function initialize() {
-    gameCards.forEach((gameCard, i) => {gameCard.style.backgroundColor = cardImgs[i]})
-    pairs = [],
-    flippedCards = [],
+    gameCards.forEach((gameCard, i) => {gameCard.style.backgroundColor = cardImgs[i]}) 
     turn = 1;
     winner = null;
     // render ();
@@ -36,8 +36,11 @@ function initialize() {
 function render() {
     renderBoard();
     renderMessage();
-    shuffle();
-    flipCard();
+    while (points < 6) {
+        flipCard();
+        compareCards();
+    }
+    // shuffle();
 }
 
 function renderBoard() {
@@ -68,24 +71,31 @@ function compareCards() {
     const card2 = flippedCards[1]
 
     if (card1.style.backgroundColor === card2.style.backgroundColor) {
-        flippedCards.forEach((flippedCard) => {
+
             card1.style.backgroundColor = 'black';
             card2.style.backgroundColor = 'black';
             pairs.push(card1, card2);
-
-            console.log("You found a pair!");
-        }); 
-    } else {
-        flippedCards.forEach((flippedCard) => {
+            console.log("You found a pair!"); 
+            points += 1
+            pairs = []
+            flippedCards = []
+            if (points === 6) {
+                alert("you win")
+                console.log("restart game")
+                points = 0;
+            }
+        } else {
+            
             console.log("try again");
-        });
-    }
+            flippedCards = [];
+        }
 
-    console.log(flippedCards[0].style.backgroundColor)
-    console.log(flippedCards[1].style.backgroundColor)
+
 }
 
 function renderMessage() {
-
+    if (points === 6){
+        
+    }
 }
 
