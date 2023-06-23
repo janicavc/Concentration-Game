@@ -9,10 +9,11 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-image: linear-gradient(white, thistle);
 }
 
 #message {
-    border: 0.2vmin solid black;
+    border: 0.2vmin solid mediumpurple;
     padding: 20px;
     border-radius: 2vmin;
 }
@@ -23,7 +24,7 @@ body {
     grid-template-rows: repeat(3, 10vmin);
     gap: 5vmin;
     margin-top: 1vmin;
-    border: 0.3vmin solid black;
+    border: 0.5vmin solid mediumpurple;
     border-radius: 2vmin;
     padding: 6vmin;
 }

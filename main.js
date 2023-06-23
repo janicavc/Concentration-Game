@@ -28,7 +28,7 @@ initialize();
 function initialize() {
     gameCards.forEach((gameCard, i) => {gameCard.style.backgroundColor = cardImgs[i]}) 
     gameCards.forEach((gameCard) => {gameCard.addEventListener('click', flipCard)});
-    message.innerHTML = 'Pick a card and find the pair!'
+    message.innerHTML = "Pick a card and find the pair!"
     points = 0;
     wrongGuess = 0;
     turn = 1;
