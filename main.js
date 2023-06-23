@@ -66,6 +66,7 @@ function flipCard(event) {
 
 }
 
+
 function compareCards() {
     const card1 = flippedCards[0]
     const card2 = flippedCards[1]
@@ -75,18 +76,19 @@ function compareCards() {
             card1.style.backgroundColor = 'black';
             card2.style.backgroundColor = 'black';
             pairs.push(card1, card2);
-            console.log("You found a pair!"); 
-            points += 1
-            pairs = []
-            flippedCards = []
+            message.innerText = "You found a pair!"; 
+            points += 1;
+            pairs = [];
+            flippedCards = [];
             if (points === 6) {
-                alert("you win")
+                // alert("you win")
+                renderMessage();
                 console.log("restart game")
                 points = 0;
             }
         } else {
-            
-            console.log("try again");
+
+            message.innerText = "Try again!";
             flippedCards = [];
         }
 
@@ -94,8 +96,8 @@ function compareCards() {
 }
 
 function renderMessage() {
-    if (points === 6){
-        
+    if (points === 6) {
+        message.innerText = 'You win!!!'
     }
 }
 
