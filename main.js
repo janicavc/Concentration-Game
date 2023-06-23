@@ -55,7 +55,7 @@ function shuffle(array) {
 // function to flip the card and display the color or img
 function flipCard(event) {
      flippedCards.push(event.target)
-
+    console.log(flippedCards)
      if (flippedCards.length === 2) {
         compareCards();
      }
@@ -64,14 +64,20 @@ function flipCard(event) {
 }
 
 function compareCards() {
-    const card1 = flippedCards[0].style.backgroundColor
-    const card2 = flippedCards[1].style.backgroundColor
-    if (card1 === card2) {
-        pairs.classList.add('matched');
-        
+    const card1 = flippedCards[0]
+    const card2 = flippedCards[1]
+    if (card1.style.backgroundColor === card2.style.backgroundColor) {
+        flippedCards.forEach((flippedCard) => {
+
+            card1.style.backgroundColor = 'black';
+            card2.style.backgroundColor = 'black';
+            
+        });
+        pairs.push(card1, card2);
+
         console.log("You found a pair!");
     } else {
-
+        console.log("try again");
     }
 
     console.log(flippedCards[0].style.backgroundColor)

@@ -34,7 +34,7 @@ body {
 }
 
 .cards > div:hover {
-    background-color: thistle;
+    border: 1vmin solid mediumpurple;
 }
 
 button {
