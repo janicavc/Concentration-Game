@@ -28,6 +28,7 @@ initialize();
 
 function initialize() {
     gameCards.forEach((gameCard, i) => {gameCard.style.backgroundColor = cardImgs[i]}) 
+    message.innerText = 'Pick a card and find the pair!'
     turn = 1;
     winner = null;
     // render ();
