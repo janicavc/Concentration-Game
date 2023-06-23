@@ -48,7 +48,6 @@ function render() {
 // function to flip the card and display the color or img
 function flipCard(event) {
      flippedCards.push(event.target)
-    console.log(flippedCards)
      if (flippedCards.length === 2) {
         compareCards();
      }
