@@ -11,7 +11,7 @@ let winner; // null = no winner, all cards have pairs = "Winner"
 let pairs = []; // keep track of the cars that have fliped and are paired
 let flippedCards = [];
 let points = 0;
-let totalGuess = 0;
+let wrongGuess = 0;
 //*---- cached elements ----*//
 const message = document.querySelector('h2');
 const playAgainBtn = document.querySelector('button');
@@ -28,20 +28,22 @@ initialize();
 
 function initialize() {
     gameCards.forEach((gameCard, i) => {gameCard.style.backgroundColor = cardImgs[i]}) 
-    message.innerText = 'Pick a card and find the pair!'
+    message.innerHTML = 'Pick a card and find the pair!'
+    points = 0;
+    wrongGuess = 0;
     turn = 1;
     winner = null;
+    // shuffle();
     // render ();
 }
 
 function render() {
     renderBoard();
-    renderMessage();
+    renderWin();
     while (points < 6) {
         flipCard();
         compareCards();
     }
-    // shuffle();
 }
 
 function renderBoard() {
@@ -49,8 +51,8 @@ function renderBoard() {
 }
 
 
-// function shuffle(array) {
-//     for (let cardIdx = array.length - 1; cardIdx >  0; cardIdx--) {
+// function shuffle(cardImgs) {
+//     for (let cardIdx = cardImgs.length - 1; cardIdx >  0; cardIdx--) {
 //         const shuffleCards = Math.floor(Math.random() * (cardIdx + 1));
 //     }
 //     return cardIdx;
@@ -77,28 +79,38 @@ function compareCards() {
             card1.style.backgroundColor = 'black';
             card2.style.backgroundColor = 'black';
             pairs.push(card1, card2);
-            message.innerText = "You found a pair!"; 
+            message.innerHTML = "You found a pair!"; 
             points += 1;
             pairs = [];
             flippedCards = [];
             if (points === 6) {
-                // alert("you win")
-                renderMessage();
-                console.log("restart game")
-                points = 0;
+                renderWin();
+                // console.log("restart game")
+                // points = 0;
             }
-        } else {
-
-            message.innerText = "Try again!";
+        } else if (card1.style.backgroundColor !== card2.style.backgroundColor) {
+            wrongGuess += 1
+            message.innerHTML = "Try again!";
             flippedCards = [];
         }
+    if (wrongGuess === 3) {
+        message.innerHTML = 'Game Over! Better luck next time'
+        gameOver();
 
-
-}
-
-function renderMessage() {
-    if (points === 6) {
-        message.innerText = 'You win!!!'
     }
+
+
 }
+
+function renderWin() {
+    if (points === 6) {
+        message.innerHTML = 'You win!!!'
+        points = 0;
+    } 
+}
+
+function gameOver() {
+    gameCards.forEach((gameCard) => {gameCard.removeEventListener('click', flipCard)});
+}
+
 
