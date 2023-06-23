@@ -45,12 +45,12 @@ function renderBoard() {
 }
 
 
-function shuffle(array) {
-    for (let cardIdx = array.length - 1; cardIdx >  0; cardIdx--) {
-        const shuffleCards = Math.floor(Math.random() * (cardIdx + 1));
-    }
-    return cardIdx;
-}
+// function shuffle(array) {
+//     for (let cardIdx = array.length - 1; cardIdx >  0; cardIdx--) {
+//         const shuffleCards = Math.floor(Math.random() * (cardIdx + 1));
+//     }
+//     return cardIdx;
+// }
 
 // function to flip the card and display the color or img
 function flipCard(event) {
@@ -66,22 +66,26 @@ function flipCard(event) {
 function compareCards() {
     const card1 = flippedCards[0]
     const card2 = flippedCards[1]
+
     if (card1.style.backgroundColor === card2.style.backgroundColor) {
         flippedCards.forEach((flippedCard) => {
-
             card1.style.backgroundColor = 'black';
             card2.style.backgroundColor = 'black';
-            
-        });
-        pairs.push(card1, card2);
+            pairs.push(card1, card2);
 
-        console.log("You found a pair!");
+            console.log("You found a pair!");
+        }); 
     } else {
-        console.log("try again");
+        flippedCards.forEach((flippedCard) => {
+            console.log("try again");
+        });
     }
 
     console.log(flippedCards[0].style.backgroundColor)
     console.log(flippedCards[1].style.backgroundColor)
+}
+
+function renderMessage() {
 
 }
 
