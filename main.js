@@ -19,7 +19,6 @@ const gameBoard = document.querySelector('#board');
 const gameCards = document.querySelectorAll('.card');
 
 //*---- event listeners ----*//
-gameCards.forEach((gameCard) => {gameCard.addEventListener('click', flipCard)});
 playAgainBtn.addEventListener('click', initialize);
 
 
@@ -28,6 +27,7 @@ initialize();
 
 function initialize() {
     gameCards.forEach((gameCard, i) => {gameCard.style.backgroundColor = cardImgs[i]}) 
+    gameCards.forEach((gameCard) => {gameCard.addEventListener('click', flipCard)});
     message.innerHTML = 'Pick a card and find the pair!'
     points = 0;
     wrongGuess = 0;
@@ -38,25 +38,12 @@ function initialize() {
 }
 
 function render() {
-    renderBoard();
     renderWin();
     while (points < 6) {
         flipCard();
         compareCards();
     }
 }
-
-function renderBoard() {
-// 
-}
-
-
-// function shuffle(cardImgs) {
-//     for (let cardIdx = cardImgs.length - 1; cardIdx >  0; cardIdx--) {
-//         const shuffleCards = Math.floor(Math.random() * (cardIdx + 1));
-//     }
-//     return cardIdx;
-// }
 
 // function to flip the card and display the color or img
 function flipCard(event) {
@@ -85,8 +72,6 @@ function compareCards() {
             flippedCards = [];
             if (points === 6) {
                 renderWin();
-                // console.log("restart game")
-                // points = 0;
             }
         } else if (card1.style.backgroundColor !== card2.style.backgroundColor) {
             wrongGuess += 1
@@ -96,7 +81,6 @@ function compareCards() {
     if (wrongGuess === 3) {
         message.innerHTML = 'Game Over! Better luck next time'
         gameOver();
-
     }
 
 
@@ -105,6 +89,7 @@ function compareCards() {
 function renderWin() {
     if (points === 6) {
         message.innerHTML = 'You win!!!'
+        gameOver();
         points = 0;
     } 
 }
