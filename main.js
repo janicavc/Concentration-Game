@@ -8,7 +8,7 @@ const winningCombos = [ ]
 //*---- state variables ----*//
 let board; //array of 4c 4r
 let winner; // null = no winner, all cards have pairs = "Winner"
-let paired = []; // keep track of the cars that have fliped and are paired
+let pairs = []; // keep track of the cars that have fliped and are paired
 let flippedCard = [];
 //*---- cached elements ----*//
 const message = document.querySelector('h2');
@@ -44,6 +44,7 @@ function renderBoard() {
 // 
 }
 
+
 function shuffle(array) {
     for (let cardIdx = array.length - 1; cardIdx >  0; cardIdx--) {
         const shuffleCards = Math.floor(Math.random() * (cardIdx + 1));
@@ -60,13 +61,14 @@ function flipCard(event) {
      }
      
 
-    //  alert('you flipped the card');
 }
 
 function compareCards() {
     const card1 = flippedCards[0].style.backgroundColor
     const card2 = flippedCards[1].style.backgroundColor
     if (card1 === card2) {
+        pairs.classList.add('matched');
+        
         console.log("You found a pair!");
     } else {
 
@@ -75,5 +77,5 @@ function compareCards() {
     console.log(flippedCards[0].style.backgroundColor)
     console.log(flippedCards[1].style.backgroundColor)
 
-    // if (flippedCards[])
 }
+
