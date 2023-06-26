@@ -79,8 +79,6 @@ function compareCards() {
         message.innerHTML = 'Game Over! Better luck next time'
         gameOver();
     }
-
-
 }
 
 function renderWin() {
