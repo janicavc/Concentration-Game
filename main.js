@@ -31,8 +31,7 @@ function initialize() {
     wrongGuess = 0;
     turn = 1;
     winner = null;
-    // shuffle();
-    // render ();
+    render ();
 }
 
 function render() {
@@ -92,5 +91,7 @@ function renderWin() {
 function gameOver() {
     gameCards.forEach((gameCard) => {gameCard.removeEventListener('click', flipCard)});
 }
+
+
 
 
