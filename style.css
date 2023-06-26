@@ -15,7 +15,22 @@ body {
 #message {
     border: 0.2vmin solid mediumpurple;
     padding: 20px;
+    font-family: 'Caprasimo', cursive;
+    font-size: 40px;
     border-radius: 2vmin;
+}
+
+h2 {
+    font-family: 'Caprasimo', cursive;
+    font-size: 30px;
+    margin-top: -2px;
+    align-items: center;
+    text-align: center;
+}
+
+h4 {
+    margin-top: -15px;
+    color: red;
 }
 
 .cards {
@@ -51,6 +66,7 @@ button {
     border-radius: 6vmin;
     border: 0.2vmin solid mediumpurple;
     background-color: lightgray;
+    font-family: 'Caprasimo', cursive;
     color: white;
 }
 

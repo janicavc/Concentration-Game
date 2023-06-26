@@ -3,12 +3,10 @@ const cardImgs = ['red', 'blue', 'orange', 'purple', 'green', 'pink', 'red', 'bl
 
 
 
-const winningCombos = [ ]
-
 //*---- state variables ----*//
-let board; //array of 4c 4r
-let winner; // null = no winner, all cards have pairs = "Winner"
-let pairs = []; // keep track of the cars that have fliped and are paired
+let board; 
+let winner; 
+let pairs = []; 
 let flippedCards = [];
 let points = 0;
 let wrongGuess = 0;
@@ -45,7 +43,7 @@ function render() {
     }
 }
 
-// function to flip the card and display the color or img
+// function to display the color or img
 function flipCard(event) {
      flippedCards.push(event.target)
      if (flippedCards.length === 2) {
