@@ -57,10 +57,6 @@ function flipCard(event) {
 }
 
 
-
-
-
-
 function compareCards() {
     const card1 = flippedCards[0];
     const card2 = flippedCards[1];
@@ -100,13 +96,6 @@ function compareCards() {
         }, 1000);
     }
 }
-
-
-
-
-
-
-
 
 function renderWin() {
     if (points === 6) {
