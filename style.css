@@ -56,7 +56,7 @@ h4 {
 }
 
 .card .back {
-    background-color: aliceblue;
+    background-color: thistle;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -86,7 +86,7 @@ h4 {
 }
 
 .cards > div.flipped {
-    transform: rotateY('angle');
+    transform: rotateX(360deg);
 }
 
 .cards > div:hover {
