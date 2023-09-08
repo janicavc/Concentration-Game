@@ -23,8 +23,12 @@ initialize();
 
 function initialize() {
     gameCards.forEach((gameCard, i) => {
-        const backImage = gameCard.querySelector('.back img');
-        backImage.src = `images/cards/${cardImgs[i]}.png`; // Set image source
+        const front = gameCard.querySelector('.front');
+        const back = gameCard.querySelector('.back');
+        
+        front.style.display = 'block'; // Show the front
+        back.style.display = 'none';   // Initially hide the back
+        
         gameCard.classList.remove('flipped');
         gameCard.addEventListener('click', flipCard);
     });
@@ -40,11 +44,9 @@ function flipCard(event) {
     if (card.classList.contains('flipped') || flippedCards.length === 2) return;
 
     card.classList.add('flipped');
-    const front = card.querySelector('.front');
     const back = card.querySelector('.back');
 
-    // Toggle visibility of front and back elements
-    front.style.display = 'none';
+    // Display the back (image) when the card is clicked
     back.style.display = 'block';
 
     flippedCards.push(card);
@@ -53,6 +55,10 @@ function flipCard(event) {
         setTimeout(compareCards, 1000);
     }
 }
+
+
+
+
 
 
 function compareCards() {
@@ -65,7 +71,7 @@ function compareCards() {
     if (img1 === img2) {
         // Cards match
         pairs.push(card1, card2);
-        message.innerHTML = "You found a pair!"; 
+        message.innerHTML = "You found a pair!";
         points += 1;
         flippedCards = [];
 
@@ -77,15 +83,11 @@ function compareCards() {
         setTimeout(() => {
             card1.classList.remove('flipped');
             card2.classList.remove('flipped');
-            const front1 = card1.querySelector('.front');
-            const back1 = card1.querySelector('.back');
-            const front2 = card2.querySelector('.front');
-            const back2 = card2.querySelector('.back');
 
-            // Toggle visibility of front and back elements
-            front1.style.display = 'block';
+            // Re-hide the back (image) when the cards don't match
+            const back1 = card1.querySelector('.back');
+            const back2 = card2.querySelector('.back');
             back1.style.display = 'none';
-            front2.style.display = 'block';
             back2.style.display = 'none';
 
             flippedCards = [];
@@ -100,6 +102,12 @@ function compareCards() {
 }
 
 
+
+
+
+
+
+
 function renderWin() {
     if (points === 6) {
         message.innerHTML = 'You win!!!'
@@ -111,3 +119,4 @@ function renderWin() {
 function gameOver() {
     gameCards.forEach((gameCard) => { gameCard.removeEventListener('click', flipCard); });
 }
+
